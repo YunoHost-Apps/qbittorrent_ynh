@@ -10,8 +10,6 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 ExecStart=/usr/bin/qbittorrent-nox --webui-port=__PORT__
-StandardOutput=append:__INSTALL_DIR__/.local/share/data/qBittorrent/logs/qbittorrent.log
-StandardError=inherit
 
 [Install]
 WantedBy=multi-user.target

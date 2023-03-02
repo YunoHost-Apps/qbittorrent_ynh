@@ -5,7 +5,7 @@ name = "qBittorrent"
 description.en = "A bittorrent client that aims to be a good alternative to all other bittorrent clients."
 description.fr = ""
 
-version = "4.2.5~ynh.1"
+version = "4.2.5~ynh1"
 
 maintainers = ["kay0u"]
 
@@ -37,11 +37,11 @@ ram.runtime = "50M"
     [install.admin]
     type = "user"
 
-    #[install.init_main_permission]
-    ## this is a generic question - ask strings are automatically handled by YunoHost's core
-    ## This won't be saved as setting and will instead be used to initialize the SSOwat permission
-    #type = "group"
-    #default = "visitors"
+    [install.init_main_permission]
+    # this is a generic question - ask strings are automatically handled by YunoHost's core
+    # This won't be saved as setting and will instead be used to initialize the SSOwat permission
+    type = "group"
+    default = "admins"
 
     #[install.password]
     ## this is a generic question - ask strings are automatically handled by YunoHost's core
@@ -55,8 +55,11 @@ ram.runtime = "50M"
 
     [resources.install_dir]
 
+    [resources.data_dir]
+
     [resources.permissions]
     main.url = "/"
+    main.protected = true
 
     [resources.ports]
     main.default = 30000

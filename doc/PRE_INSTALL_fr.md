@@ -1,1 +1,1 @@
-Ceci est un faux disclaimer à présenter avant l'installation
+Vous devriez n'autoriser l'accès qu'aux personnes de confiance.

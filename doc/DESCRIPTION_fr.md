@@ -1,1 +1,1 @@
-Ceci est une fausse description des fonctionalités de l'app
+qBittorrent se veut une bonne alternative à tous les autres clients bittorrent existants. qBittorrent est rapide, stable et offre un support unicode ainsi que de nombreuses fonctionnalités.
