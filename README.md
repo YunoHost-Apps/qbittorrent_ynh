@@ -22,7 +22,7 @@ qBittorrent aims to be a good alternative to all other bittorrent clients out th
 
 ## Screenshots
 
-![Screenshot of qBittorrent](./doc/screenshots/example.jpg)
+![Screenshot of qBittorrent](./doc/screenshots/qbittorrent.jpg)
 
 ## Documentation and resources
 
