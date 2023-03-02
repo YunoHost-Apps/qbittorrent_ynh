@@ -1,1 +1,1 @@
-You should keep this application private, and only allow access to trusted people.
+You should only allow access to trusted people.

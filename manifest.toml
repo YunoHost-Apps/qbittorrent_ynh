@@ -59,6 +59,7 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
+    main.protected = true
 
     [resources.ports]
     main.default = 30000

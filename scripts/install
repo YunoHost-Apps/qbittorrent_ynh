@@ -25,8 +25,6 @@ yunohost service add $app --description="qBittorrent-nox service" --log="$instal
 # Use logrotate to manage application logfile(s)
 ynh_use_logrotate
 
-ynh_permission_update --permission "main" --add "$admin"
-
 mkdir -p "$install_dir/.config/qBittorrent/"
 
 ynh_add_config --template="../conf/qBittorrent.conf" --destination="$install_dir/.config/qBittorrent/qBittorrent.conf"
