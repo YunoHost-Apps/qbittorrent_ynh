@@ -1,1 +1,1 @@
-Ceci est un faux disclaimer à présenter avant l'installation
+Vous devriez garder cette application privée, et n'en autoriser l'accès qu'aux personnes de confiance.

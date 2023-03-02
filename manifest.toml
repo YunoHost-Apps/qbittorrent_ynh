@@ -5,7 +5,7 @@ name = "qBittorrent"
 description.en = "A bittorrent client that aims to be a good alternative to all other bittorrent clients."
 description.fr = ""
 
-version = "4.2.5~ynh.1"
+version = "4.2.5~ynh1"
 
 maintainers = ["kay0u"]
 
