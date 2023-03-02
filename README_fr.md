@@ -22,7 +22,7 @@ qBittorrent se veut une bonne alternative à tous les autres clients bittorrent 
 
 ## Captures d’écran
 
-![Capture d’écran de qBittorrent](./doc/screenshots/example.jpg)
+![Capture d’écran de qBittorrent](./doc/screenshots/qbittorrent.jpg)
 
 ## Documentations et ressources
 
