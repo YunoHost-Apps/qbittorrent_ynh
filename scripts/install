@@ -25,8 +25,14 @@ yunohost service add $app --description="qBittorrent-nox service" --log="$instal
 # Use logrotate to manage application logfile(s)
 ynh_use_logrotate
 
-# Create a dedicated Fail2Ban config
-ynh_add_fail2ban_config --logpath="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log" --failregex="^.*WebAPI login failure. Reason: invalid credentials, attempt count: .*, IP: <HOST>.*$" --max_retry=5
+ynh_permission_update --permission "main" --add "$admin"
+
+mkdir -p "$install_dir/.config/qBittorrent/"
+
+ynh_add_config --template="../conf/qBittorrent.conf" --destination="$install_dir/.config/qBittorrent/qBittorrent.conf"
+
+chown $app: -R "$install_dir/.config/"
+chmod 600 "$install_dir/.config/qBittorrent/qBittorrent.conf"
 
 #=================================================
 # YUNOHOST MULTIMEDIA INTEGRATION
@@ -36,8 +42,7 @@ ynh_script_progression --message="Adding multimedia directories..." --weight=6
 # Build YunoHost multimedia directories
 ynh_multimedia_build_main_dir
 
-# Allow nextcloud to write into these directories
-ynh_multimedia_addaccess $app
+ynh_multimedia_addfolder --source_dir="$data_dir" --dest_dir="share/Torrents"
 
 #=================================================
 # GENERIC FINALIZATION
