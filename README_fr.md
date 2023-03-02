@@ -16,10 +16,9 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Ceci est une fausse description des fonctionalités de l'app
+qBittorrent se veut une bonne alternative à tous les autres clients bittorrent existants. qBittorrent est rapide, stable et offre un support unicode ainsi que de nombreuses fonctionnalités.
 
-
-**Version incluse :** 4.2.5~ynh.1
+**Version incluse :** 4.2.5~ynh1
 
 ## Captures d’écran
 
