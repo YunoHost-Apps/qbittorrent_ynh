@@ -11,13 +11,13 @@ maintainers = ["kay0u"]
 
 [upstream]
 license = "GPL-3.0-or-later"
-website = "hhttps://www.qbittorrent.org"
+website = "https://www.qbittorrent.org"
 admindoc = "https://github.com/qbittorrent/qBittorrent/wiki"
 code = "https://github.com/qbittorrent/qBittorrent"
 cpe = "cpe:2.3:a:qbittorrent:qbittorrent"
 
 [integration]
-yunohost = ">= 11.1.10"
+yunohost = ">= 11.1.12"
 architectures = "all"
 multi_instance = true
 ldap = false
