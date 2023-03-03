@@ -26,7 +26,7 @@ qBittorrent aims to be a good alternative to all other bittorrent clients out th
 
 ## Documentation and resources
 
-* Official app website: <hhttps://www.qbittorrent.org>
+* Official app website: <https://www.qbittorrent.org>
 * Official admin documentation: <https://github.com/qbittorrent/qBittorrent/wiki>
 * Upstream app code repository: <https://github.com/qbittorrent/qBittorrent>
 * YunoHost documentation for this app: <https://yunohost.org/app_qbittorrent>
