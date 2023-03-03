@@ -44,7 +44,7 @@ yunohost service add $app --description="qBittorrent-nox service" --log="$instal
 ynh_script_progression --message="Reloading NGINX web server and $app's service..." --weight=1
 
 # Typically you only have either $app or php-fpm but not both at the same time...
-ynh_systemd_action --service_name=$app --action=start --line_match="Web UI: Now listening on IP: \*, port: $port" --log_path="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log" --timeout=3600
+ynh_systemd_action --service_name=$app --action=start --line_match="Web UI: Now listening on IP: \*, port: $port" --log_path="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log" --timeout=60
 
 ynh_systemd_action --service_name=nginx --action=reload
 
