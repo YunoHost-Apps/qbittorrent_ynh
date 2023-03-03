@@ -2,8 +2,8 @@ packaging_format = 2
 
 id = "qbittorrent"
 name = "qBittorrent"
-description.en = "A bittorrent client that aims to be a good alternative to all other bittorrent clients."
-description.fr = ""
+description.en = "Bittorrent client that aims to be a good alternative to all other bittorrent clients."
+description.fr = "Client bittorrent qui vise à être une bonne alternative à tous les autres clients bittorrent"
 
 version = "4.2.5~ynh1"
 
