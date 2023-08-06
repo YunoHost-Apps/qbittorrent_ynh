@@ -17,7 +17,7 @@ code = "https://github.com/qbittorrent/qBittorrent"
 cpe = "cpe:2.3:a:qbittorrent:qbittorrent"
 
 [integration]
-yunohost = ">= 11.1.12"
+yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
 ldap = false
