@@ -29,7 +29,7 @@ qBittorrent aims to be a good alternative to all other bittorrent clients out th
 * Official app website: <https://www.qbittorrent.org>
 * Official admin documentation: <https://github.com/qbittorrent/qBittorrent/wiki>
 * Upstream app code repository: <https://github.com/qbittorrent/qBittorrent>
-* YunoHost documentation for this app: <https://yunohost.org/app_qbittorrent>
+* YunoHost Store: <https://apps.yunohost.org/app/qbittorrent>
 * Report a bug: <https://github.com/YunoHost-Apps/qbittorrent_ynh/issues>
 
 ## Developer info
