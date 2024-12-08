@@ -20,7 +20,7 @@ It shall NOT be edited by hand.
 
 qBittorrent aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features.
 
-**Shipped version:** 4.2.5~ynh2
+**Shipped version:** 4.2.5~ynh3
 
 ## Screenshots
 

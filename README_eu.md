@@ -20,7 +20,7 @@ EZ editatu eskuz.
 
 qBittorrent aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features.
 
-**Paketatutako bertsioa:** 4.2.5~ynh2
+**Paketatutako bertsioa:** 4.2.5~ynh3
 
 ## Pantaila-argazkiak
 
