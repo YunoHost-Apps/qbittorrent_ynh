@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # qBittorrent para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/qbittorrent.svg)](https://dash.yunohost.org/appci/app/qbittorrent) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/qbittorrent.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/qbittorrent.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/qbittorrent)](https://ci-apps.yunohost.org/ci/apps/qbittorrent/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/qbittorrent)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/qbittorrent)
 
 [![Instalar qBittorrent con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=qbittorrent)
 

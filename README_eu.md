@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # qBittorrent YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/qbittorrent.svg)](https://dash.yunohost.org/appci/app/qbittorrent) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/qbittorrent.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/qbittorrent.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/qbittorrent)](https://ci-apps.yunohost.org/ci/apps/qbittorrent/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/qbittorrent)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/qbittorrent)
 
 [![Instalatu qBittorrent YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=qbittorrent)
 
