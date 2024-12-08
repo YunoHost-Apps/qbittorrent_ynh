@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # qBittorrent para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/qbittorrent.svg)](https://dash.yunohost.org/appci/app/qbittorrent) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/qbittorrent.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/qbittorrent.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/qbittorrent)](https://ci-apps.yunohost.org/ci/apps/qbittorrent/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/qbittorrent)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/qbittorrent)
 
 [![Instalar qBittorrent con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=qbittorrent)
 
@@ -18,7 +20,7 @@ NON debe editarse manualmente.
 
 qBittorrent aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features.
 
-**Versión proporcionada:** 4.2.5~ynh2
+**Versión proporcionada:** 4.2.5~ynh3
 
 ## Capturas de pantalla
 

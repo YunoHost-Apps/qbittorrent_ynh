@@ -5,7 +5,9 @@
 
 # YunoHost 上的 qBittorrent
 
-[![集成程度](https://dash.yunohost.org/integration/qbittorrent.svg)](https://dash.yunohost.org/appci/app/qbittorrent) ![工作状态](https://ci-apps.yunohost.org/ci/badges/qbittorrent.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/qbittorrent.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/qbittorrent)](https://ci-apps.yunohost.org/ci/apps/qbittorrent/)
+![工作状态](https://apps.yunohost.org/badge/state/qbittorrent)
+![维护状态](https://apps.yunohost.org/badge/maintained/qbittorrent)
 
 [![使用 YunoHost 安装 qBittorrent](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=qbittorrent)
 
@@ -18,7 +20,7 @@
 
 qBittorrent aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features.
 
-**分发版本：** 4.2.5~ynh2
+**分发版本：** 4.2.5~ynh3
 
 ## 截图
 

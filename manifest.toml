@@ -5,7 +5,7 @@ name = "qBittorrent"
 description.en = "Bittorrent client that aims to be a good alternative to all other bittorrent clients."
 description.fr = "Client bittorrent qui vise à être une bonne alternative à tous les autres clients bittorrent"
 
-version = "4.2.5~ynh2"
+version = "4.2.5~ynh3"
 
 maintainers = ["kay0u"]
 
@@ -45,6 +45,8 @@ ram.runtime = "50M"
     main.url = "/"
     main.protected = true
     main.allowed = "admins"
+    api.url = "/api"
+    api.allowed = "visitors"
 
     [resources.ports]
     main.default = 30000

@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # qBittorrent para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/qbittorrent.svg)](https://dash.yunohost.org/appci/app/qbittorrent) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/qbittorrent.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/qbittorrent.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/qbittorrent)](https://ci-apps.yunohost.org/ci/apps/qbittorrent/)
+![Estado funcional](https://apps.yunohost.org/badge/state/qbittorrent)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/qbittorrent)
 
 [![Instalar qBittorrent con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=qbittorrent)
 
@@ -18,7 +20,7 @@ No se debe editar a mano.
 
 qBittorrent aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features.
 
-**Versión actual:** 4.2.5~ynh2
+**Versión actual:** 4.2.5~ynh3
 
 ## Capturas
 
@@ -34,7 +36,7 @@ qBittorrent aims to be a good alternative to all other bittorrent clients out th
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/qbittorrent_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/qbittorrent_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
