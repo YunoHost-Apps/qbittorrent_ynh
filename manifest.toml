@@ -57,5 +57,5 @@ ram.runtime = "50M"
     [resources.apt]
 
     extras.pufferpanel.repo = "deb http://download.opensuse.org/repositories/home:/nikoneko:/test/Debian_12"
-    extras.pufferpanel.key = "https://download.opensuse.org/repositories/home:nikoneko:test/Debian_11/Release.key"
+    extras.pufferpanel.key = "https://download.opensuse.org/repositories/home:nikoneko:test/Debian_12/Release.key"
     extras.pufferpanel.packages = "qbittorrent-nox"
