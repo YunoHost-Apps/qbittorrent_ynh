@@ -23,9 +23,6 @@ mkdir -p "$install_dir/.config/qBittorrent/"
 
 ynh_config_add --template="qBittorrent.conf" --destination="$install_dir/.config/qBittorrent/qBittorrent.conf"
 
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app: -R "$install_dir/.config/"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 600 "$install_dir/.config/qBittorrent/qBittorrent.conf"
-
 #=================================================
 # YUNOHOST MULTIMEDIA INTEGRATION
 #=================================================

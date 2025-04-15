@@ -17,8 +17,6 @@ ynh_restore "$install_dir"
 ynh_restore "$data_dir"
 
 #=================================================
-# SPECIFIC RESTORE
-#=================================================
 # RESTORE SYSTEM CONFIGURATIONS
 #=================================================
 ynh_script_progression "Restoring system configurations related to $app..."
