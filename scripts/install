@@ -24,6 +24,8 @@ mkdir -p "$install_dir/.config/qBittorrent/"
 ynh_config_add --template="qBittorrent.conf" --destination="$install_dir/.config/qBittorrent/qBittorrent.conf"
 
 chown -R $app: "$install_dir"
+#chown $app: -R "$install_dir/.config/"
+chmod 600 "$install_dir/.config/qBittorrent/qBittorrent.conf"
 
 #=================================================
 # YUNOHOST MULTIMEDIA INTEGRATION
