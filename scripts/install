@@ -14,7 +14,7 @@ ynh_config_add_nginx
 # Create a dedicated systemd config
 ynh_config_add_systemd
 
-log_dir="$data_dir/.local/share/data/qBittorrent/logs"
+log_dir="$data_dir/logs"
 mkdir -p "$log_dir"
 touch "$log_dir/qbittorrent.log"
 
@@ -23,7 +23,7 @@ yunohost service add $app --description="qBittorrent-nox service" --log="$log_di
 # Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
 
-config_dir="$data_dir/.config/qBittorrent"
+config_dir="$data_dir/qBittorrent/config"
 mkdir -p "$config_dir"
 
 ynh_config_add --template="qBittorrent.conf" --destination="$config_dir/qBittorrent.conf"
