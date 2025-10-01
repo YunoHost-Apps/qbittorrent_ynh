@@ -18,7 +18,7 @@ log_dir="$data_dir/logs"
 mkdir -p "$log_dir"
 touch "$log_dir/qbittorrent.log"
 
-yunohost service add $app --description="qBittorrent-nox service" --log="$log_dir/qbittorrent.log"
+yunohost service add $app --description="qBittorrent-nox service"
 
 # Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
@@ -48,7 +48,7 @@ ynh_multimedia_addfolder --source_dir="$data_dir" --dest_dir="share/Torrents"
 ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-ynh_systemctl --service=$app --action=start --wait_until="To control qBittorrent" --log_path="systemd" --timeout=180
+ynh_systemctl --service=$app --action=start --wait_until="Now listening on IP" --log_path="$data_dir/qBittorrent/data/logs/qbittorrent.log" --timeout=30
 
 #=================================================
 # END OF SCRIPT

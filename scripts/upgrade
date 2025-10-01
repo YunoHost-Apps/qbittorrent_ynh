@@ -19,11 +19,7 @@ ynh_config_add_nginx
 
 ynh_config_add_systemd
 
-log_dir="$data_dir/.local/share/data/qBittorrent/logs"
-mkdir -p "$log_dir"
-touch "$log_dir/qbittorrent.log"
-
-yunohost service add $app --description="qBittorrent-nox service" --log="$log_dir/qbittorrent.log"
+yunohost service add $app --description="qBittorrent-nox service"
 
 old_config_dir="$install_dir/.config/qBittorrent"
 new_config_dir="$data_dir/.config/qBittorrent"
@@ -48,7 +44,7 @@ chown -R $app: "$data_dir"
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action=start --wait_until="To control qBittorrent" --log_path="systemd" --timeout=180
+ynh_systemctl --service=$app --action=start --wait_until="Now listening on IP" --log_path="$data_dir/qBittorrent/data/logs/qbittorrent.log" --timeout=30
 
 #=================================================
 # END OF SCRIPT
