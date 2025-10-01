@@ -26,7 +26,13 @@ ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 ynh_restore "/etc/systemd/system/$app.service"
 systemctl enable $app.service --quiet
 
-yunohost service add $app --description="qBittorrent-nox service" --log="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log"
+log_dir="$data_dir/.local/share/data/qBittorrent/logs"
+mkdir -p "$log_dir"
+touch "$log_dir/qbittorrent.log"
+
+yunohost service add $app --description="qBittorrent-nox service" --log="$log_dir/qbittorrent.log"
+
+chown -R $app: "$data_dir"
 
 #=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
@@ -34,7 +40,7 @@ yunohost service add $app --description="qBittorrent-nox service" --log="$instal
 ynh_script_progression "Reloading NGINX web server and $app's service..."
 
 # Typically you only have either $app or php-fpm but not both at the same time...
-ynh_systemctl --service=$app --action=start --wait_until="Web UI: Now listening on IP: \*, port: $port" --log_path="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log" --timeout=60
+ynh_systemctl --service=$app --action=start --wait_until="To control qBittorrent" --log_path="systemd" --timeout=180
 
 ynh_systemctl --service=nginx --action=reload
 
