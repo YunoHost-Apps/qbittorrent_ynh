@@ -21,24 +21,6 @@ ynh_config_add_systemd
 
 yunohost service add $app --description="qBittorrent-nox service"
 
-old_config_dir="$install_dir/.config/qBittorrent"
-new_config_dir="$data_dir/.config/qBittorrent"
-if [ -d "$old_config_dir" ]; then
-	mkdir -p "$new_config_dir"
-	if [ -f "$old_config_dir/qBittorrent.conf" ] && [ ! -f "$new_config_dir/qBittorrent.conf" ]; then
-		mv "$old_config_dir/qBittorrent.conf" "$new_config_dir/qBittorrent.conf"
-	fi
-	if [ -d "$old_config_dir" ]; then
-		rmdir --ignore-fail-on-non-empty "$old_config_dir" 2>/dev/null || true
-	fi
-fi
-
-mkdir -p "$new_config_dir"
-ynh_config_add --template="qBittorrent.conf" --destination="$new_config_dir/qBittorrent.conf"
-chmod 600 "$new_config_dir/qBittorrent.conf"
-
-chown -R $app: "$data_dir"
-
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
