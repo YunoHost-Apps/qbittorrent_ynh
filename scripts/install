@@ -48,7 +48,7 @@ ynh_multimedia_addfolder --source_dir="$data_dir" --dest_dir="share/Torrents"
 ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-ynh_systemctl --service=$app --action=start --wait_until="Web UI: Now listening on IP" --log_path="systemd" --timeout=120
+ynh_systemctl --service=$app --action=start --wait_until="To control qBittorrent" --log_path="systemd" --timeout=180
 
 #=================================================
 # END OF SCRIPT
