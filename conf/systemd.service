@@ -5,11 +5,18 @@ Wants=network-online.target
 After=network-online.target nss-lookup.target
 
 [Service]
-Type=exec
+Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__INSTALL_DIR__/
-ExecStart=/usr/bin/qbittorrent-nox --webui-port=__PORT__
+WorkingDirectory=__DATA_DIR__/
+ExecStart=/usr/bin/qbittorrent-nox --webui-port=__PORT__ --profile=__DATA_DIR__
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=read-only
+ProtectSystem=full
+ReadWritePaths=__DATA_DIR__
 
 [Install]
 WantedBy=multi-user.target

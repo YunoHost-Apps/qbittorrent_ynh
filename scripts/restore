@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
-source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -26,7 +24,9 @@ ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 ynh_restore "/etc/systemd/system/$app.service"
 systemctl enable $app.service --quiet
 
-yunohost service add $app --description="qBittorrent-nox service" --log="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log"
+yunohost service add $app --description="qBittorrent-nox service"
+
+chown -R $app: "$data_dir"
 
 #=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
@@ -34,8 +34,7 @@ yunohost service add $app --description="qBittorrent-nox service" --log="$instal
 ynh_script_progression "Reloading NGINX web server and $app's service..."
 
 # Typically you only have either $app or php-fpm but not both at the same time...
-ynh_systemctl --service=$app --action=start --wait_until="Web UI: Now listening on IP: \*, port: $port" --log_path="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log" --timeout=60
-
+ynh_systemctl --service=$app --action=start --wait_until="Now listening on IP" --log_path="$data_dir/qBittorrent/data/logs/qbittorrent.log" --timeout=30
 ynh_systemctl --service=nginx --action=reload
 
 #=================================================

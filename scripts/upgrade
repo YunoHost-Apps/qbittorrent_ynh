@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -19,14 +18,14 @@ ynh_config_add_nginx
 
 ynh_config_add_systemd
 
-yunohost service add $app --description="qBittorrent-nox service" --log="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log"
+yunohost service add $app --description="qBittorrent-nox service"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action=start --wait_until="Web UI: Now listening on IP: \*, port: $port" --log_path="$install_dir/.local/share/data/qBittorrent/logs/qbittorrent.log" --timeout=60
+ynh_systemctl --service=$app --action=start --wait_until="Now listening on IP" --log_path="$data_dir/qBittorrent/data/logs/qbittorrent.log" --timeout=30
 
 #=================================================
 # END OF SCRIPT
