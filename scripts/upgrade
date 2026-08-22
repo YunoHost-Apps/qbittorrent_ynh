@@ -70,7 +70,7 @@ yunohost service add $app --description="qBittorrent-nox service"
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action=start --wait_until="Now listening on IP" --log_path="$data_dir/qBittorrent/data/logs/qbittorrent.log" --timeout=30
+ynh_systemctl --service=$app --action=start
 
 #=================================================
 # END OF SCRIPT
