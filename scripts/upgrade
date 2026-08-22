@@ -19,7 +19,8 @@ ynh_script_progression "Checking qBittorrent's WebUI authentication..."
 # requests: the admin API was open. It is now admin-only, external clients use /ext.
 qbittorrent_conf="$data_dir/qBittorrent/config/qBittorrent.conf"
 
-mkdir -p "$(dirname "$qbittorrent_conf")"
+qbittorrent_data="$data_dir/qBittorrent/data"
+mkdir -p "$(dirname "$qbittorrent_conf")" "$qbittorrent_data/BT_backup"
 
 # The config lived in $install_dir/.config then $data_dir/.config before qBittorrent
 # got a --profile: older installs still keep it there, or have none at all.
@@ -27,6 +28,17 @@ if [ ! -f "$qbittorrent_conf" ]; then
     for legacy_conf in "$data_dir/.config/qBittorrent/qBittorrent.conf" "$install_dir/.config/qBittorrent/qBittorrent.conf"; do
         if [ -f "$legacy_conf" ]; then
             mv "$legacy_conf" "$qbittorrent_conf"
+            break
+        fi
+    done
+fi
+
+# Torrents and their resume data lived under $install_dir before the --profile
+# switch. Copy rather than move, so a failed upgrade leaves the old install intact.
+if [ -z "$(ls -A "$qbittorrent_data/BT_backup" 2>/dev/null)" ]; then
+    for legacy_data in "$install_dir/.local/share/qBittorrent" "$install_dir/.local/share/data/qBittorrent"; do
+        if [ -d "$legacy_data/BT_backup" ]; then
+            cp -a "$legacy_data/." "$qbittorrent_data/"
             break
         fi
     done
