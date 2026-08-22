@@ -19,6 +19,26 @@ ynh_script_progression "Checking qBittorrent's WebUI authentication..."
 # requests: the admin API was open. It is now admin-only, external clients use /ext.
 qbittorrent_conf="$data_dir/qBittorrent/config/qBittorrent.conf"
 
+mkdir -p "$(dirname "$qbittorrent_conf")"
+
+# The config lived in $install_dir/.config then $data_dir/.config before qBittorrent
+# got a --profile: older installs still keep it there, or have none at all.
+if [ ! -f "$qbittorrent_conf" ]; then
+    for legacy_conf in "$data_dir/.config/qBittorrent/qBittorrent.conf" "$install_dir/.config/qBittorrent/qBittorrent.conf"; do
+        if [ -f "$legacy_conf" ]; then
+            mv "$legacy_conf" "$qbittorrent_conf"
+            break
+        fi
+    done
+fi
+
+if [ ! -f "$qbittorrent_conf" ]; then
+    password=$(ynh_string_random --length=24)
+    ynh_app_setting_set --key=password --value="$password"
+    password_pbkdf2=$(qbittorrent_password_pbkdf2 "$password")
+    ynh_config_add --template="qBittorrent.conf" --destination="$qbittorrent_conf"
+fi
+
 qbittorrent_conf_set "$qbittorrent_conf" 'WebUI\ReverseProxySupportEnabled' "true"
 qbittorrent_conf_set "$qbittorrent_conf" 'WebUI\TrustedReverseProxiesList' "127.0.0.1"
 
@@ -31,6 +51,8 @@ if ! grep -qF 'WebUI\Password_PBKDF2=' "$qbittorrent_conf" \
     qbittorrent_conf_set "$qbittorrent_conf" 'WebUI\Password_PBKDF2' \
         "\"@ByteArray($(qbittorrent_password_pbkdf2 "$password"))\""
 fi
+
+chown -R "$app:" "$data_dir/qBittorrent"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
