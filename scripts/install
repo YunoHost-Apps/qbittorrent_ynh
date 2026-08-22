@@ -1,6 +1,18 @@
 #!/bin/bash
 
+source _common.sh
 source /usr/share/yunohost/helpers
+
+#=================================================
+# GENERATE THE WEBUI PASSWORD
+#=================================================
+ynh_script_progression "Generating qBittorrent's WebUI password..."
+
+# __PATH__/ext is exposed to visitors so external clients can reach the API without
+# the SSO, so qBittorrent must authenticate those requests itself.
+password=$(ynh_string_random --length=24)
+ynh_app_setting_set --key=password --value="$password"
+password_pbkdf2=$(qbittorrent_password_pbkdf2 "$password")
 
 #=================================================
 # SYSTEM CONFIGURATION

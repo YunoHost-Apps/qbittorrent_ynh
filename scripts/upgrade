@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -8,6 +9,28 @@ source /usr/share/yunohost/helpers
 ynh_script_progression "Stopping $app's systemd service..."
 
 ynh_systemctl --service=$app --action="stop"
+
+#=================================================
+# ENFORCE QBITTORRENT'S OWN AUTHENTICATION
+#=================================================
+ynh_script_progression "Checking qBittorrent's WebUI authentication..."
+
+# Up to 4.2.5~ynh3, /api was public while qBittorrent skipped auth for proxied
+# requests: the admin API was open. It is now admin-only, external clients use /ext.
+qbittorrent_conf="$data_dir/qBittorrent/config/qBittorrent.conf"
+
+qbittorrent_conf_set "$qbittorrent_conf" 'WebUI\ReverseProxySupportEnabled' "true"
+qbittorrent_conf_set "$qbittorrent_conf" 'WebUI\TrustedReverseProxiesList' "127.0.0.1"
+
+# Also reset the hardcoded "adminadmin" default, which is what an absent
+# Password_PBKDF2 means on 4.5.x. A password the admin chose is left alone.
+if ! grep -qF 'WebUI\Password_PBKDF2=' "$qbittorrent_conf" \
+    || qbittorrent_password_is "$qbittorrent_conf" "adminadmin"; then
+    password=$(ynh_string_random --length=24)
+    ynh_app_setting_set --key=password --value="$password"
+    qbittorrent_conf_set "$qbittorrent_conf" 'WebUI\Password_PBKDF2' \
+        "\"@ByteArray($(qbittorrent_password_pbkdf2 "$password"))\""
+fi
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
