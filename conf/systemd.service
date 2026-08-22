@@ -8,8 +8,8 @@ After=network-online.target nss-lookup.target
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__DATA_DIR__/
-ExecStart=/usr/bin/qbittorrent-nox --webui-port=__PORT__ --profile=__DATA_DIR__
+WorkingDirectory=__INSTALL_DIR__/
+ExecStart=/usr/bin/qbittorrent-nox --webui-port=__PORT__ --profile=__INSTALL_DIR__
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=yes

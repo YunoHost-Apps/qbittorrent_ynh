@@ -17,31 +17,34 @@ ynh_script_progression "Checking qBittorrent's WebUI authentication..."
 
 # Up to 4.2.5~ynh3, /api was public while qBittorrent skipped auth for proxied
 # requests: the admin API was open. It is now admin-only, external clients use /ext.
-qbittorrent_conf="$data_dir/qBittorrent/config/qBittorrent.conf"
+qbittorrent_conf="$install_dir/qBittorrent/config/qBittorrent.conf"
 
-qbittorrent_data="$data_dir/qBittorrent/data"
+qbittorrent_data="$install_dir/qBittorrent/data"
 mkdir -p "$(dirname "$qbittorrent_conf")" "$qbittorrent_data/BT_backup"
 
-# The config lived in $install_dir/.config then $data_dir/.config before qBittorrent
-# got a --profile: older installs still keep it there, or have none at all.
-if [ ! -f "$qbittorrent_conf" ]; then
-    for legacy_conf in "$data_dir/.config/qBittorrent/qBittorrent.conf" "$install_dir/.config/qBittorrent/qBittorrent.conf"; do
-        if [ -f "$legacy_conf" ]; then
-            mv "$legacy_conf" "$qbittorrent_conf"
-            break
-        fi
-    done
-fi
+if ynh_app_upgrading_from_version_before 4.5.2~ynh2; then
+    # The profile moved around a lot: XDG dirs under $install_dir, then $data_dir. It now
+    # lives in $install_dir, out of reach of the recursive ACLs multimedia apps apply.
+    if [ ! -f "$qbittorrent_conf" ]; then
+        for legacy_conf in "$data_dir/qBittorrent/config/qBittorrent.conf" "$data_dir/.config/qBittorrent/qBittorrent.conf" "$install_dir/.config/qBittorrent/qBittorrent.conf"; do
+            if [ -f "$legacy_conf" ]; then
+                mv "$legacy_conf" "$qbittorrent_conf"
+                break
+            fi
+        done
+    fi
 
-# Torrents and their resume data lived under $install_dir before the --profile
-# switch. Copy rather than move, so a failed upgrade leaves the old install intact.
-if [ -z "$(ls -A "$qbittorrent_data/BT_backup" 2>/dev/null)" ]; then
-    for legacy_data in "$install_dir/.local/share/qBittorrent" "$install_dir/.local/share/data/qBittorrent"; do
-        if [ -d "$legacy_data/BT_backup" ]; then
-            cp -a "$legacy_data/." "$qbittorrent_data/"
-            break
-        fi
-    done
+    # Torrents and their resume data follow the profile. Copy rather than move, so a
+    # failed upgrade leaves the previous location intact.
+    if [ -z "$(ls -A "$qbittorrent_data/BT_backup" 2>/dev/null)" ]; then
+        for legacy_data in "$data_dir/qBittorrent/data" "$install_dir/.local/share/qBittorrent" "$install_dir/.local/share/data/qBittorrent"; do
+            if [ -d "$legacy_data/BT_backup" ]; then
+                cp -a "$legacy_data/." "$qbittorrent_data/"
+                ynh_app_setting_set --key=legacy_profile --value="$legacy_data"
+                break
+            fi
+        done
+    fi
 fi
 
 if [ ! -f "$qbittorrent_conf" ]; then
@@ -64,7 +67,7 @@ if ! grep -qF 'WebUI\Password_PBKDF2=' "$qbittorrent_conf" \
         "\"@ByteArray($(qbittorrent_password_pbkdf2 "$password"))\""
 fi
 
-chown -R "$app:" "$data_dir/qBittorrent"
+chown -R "$app:" "$install_dir/qBittorrent"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
